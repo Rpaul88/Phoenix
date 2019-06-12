@@ -27,20 +27,30 @@ driver.get("file:///C:/Users/Guest%20User/Desktop/RAJESH/Selenium/TableHandling.
 # for i in ele:
 #     print(i.text)
 
-######### To find row count & column count##############
+##----------------------------------------------------------------##
+
+# To find row count & column count
 
 col_val=driver.find_elements_by_xpath("//*[@id='123']/tbody/tr[1]/td") # All elements in 1st row(1,A,100)
 col_count=len(col_val)
-print("Column count",col_count)
+print("Column count is",col_count)
 
 row_val = driver.find_elements_by_xpath("//*[@id='123']/tbody/tr") # All rows {(1,A,100) , (2,B,200), (3,C,300) }
 row_count = len(row_val)
-print("Row count", row_count)
+print("Row count is", row_count)
 
-###################################################################
+##-----------------------------------------------------------------##
 
-# fp="//*[@id='123']/tbody/tr[1]/td["
-# sp="]"
-# for i in col_count:
-#     final_p=fp+i+sp
+# To print web elements in 1st row
+
+fp="//*[@id='123']/tbody/tr[1]/td["
+sp="]"
+for i in range(1,col_count+1):
+    final_p = fp + str(i) + sp
+    w=driver.find_element_by_xpath(final_p).text
+    print(w)
+
+##########################################################################
+
+
 
